@@ -1,0 +1,4 @@
+https://backlog.com/blog/git-vs-svn-version-control-system/
+https://docs.google.com/spreadsheets/d/1f5YOiwYVEAr_JXiccs4AoV9iPtp72k7z/edit#gid=1930411929
+https://patient-management-system-demo.herokuapp.com/web/dashboard
+https://github.com/TalaatHarb/patient-management-system
