@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from "react";
-import MovieCardGrid from "./components/Movie/MovieCardGrid";
+import React from "react"
+import MovieCardGrid from './components/Movie/MovieCardGrid'
 
 
 function App() {
-  <MovieCardGrid />
+  return <MovieCardGrid />
 }
 
 export default App;
+
