@@ -1,0 +1,36 @@
+git branche --remote (to get all remote branches on the repo)
+git checkout feature/central
+
+git add.
+git commit -m ""
+git push (you may need to pull first)
+
+--------------------------------------------------
+
+checkout development
+creating a branch (feature/name)
+git push --set-upstream origin branch_name
+(git merge -> Not necessary)
+
+Make changes
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+--------------------------------------------
+Hotfix (Making changes on production)
+bugfix 
