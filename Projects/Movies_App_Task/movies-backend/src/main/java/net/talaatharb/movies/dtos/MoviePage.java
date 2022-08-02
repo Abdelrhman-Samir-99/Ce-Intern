@@ -6,8 +6,6 @@ import lombok.Data;
 
 @Data
 public class MoviePage {
-
-	private Integer page;
-	
-	private List<Object> results;
+	private Integer page;	
+	private List<MovieCard> results;
 }
