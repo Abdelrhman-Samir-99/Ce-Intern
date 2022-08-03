@@ -12,7 +12,7 @@ import lombok.RequiredArgsConstructor;
 @Table
 @Data
 @RequiredArgsConstructor
-public class MovieCardCache {
+public class MovieCardCacheItem {
 	@Id
 	Integer id;
     String title;

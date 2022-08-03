@@ -1,17 +1,14 @@
 package net.talaatharb.movies.services;
 
-import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 import lombok.RequiredArgsConstructor;
-import net.talaatharb.movies.dtos.MovieCard;
+import net.talaatharb.movies.caches.IMovieCardCache;
 import net.talaatharb.movies.dtos.MoviePage;
-import net.talaatharb.movies.model.MovieCardCache;
+import net.talaatharb.movies.model.MovieCardCacheItem;
 import net.talaatharb.movies.reposotiry.MovieCardCacheRepository;
 
 @Service
@@ -25,6 +22,8 @@ public class MovieService implements IMovieService {
 	
 	@Autowired
 	MovieCardCacheRepository movieCardCacheReposoitry;
+	@Autowired
+	IMovieCardCache movieCardCache;
 	
 	@Override
 	public MoviePage getPopularMoviesPage(int page) {
@@ -39,20 +38,9 @@ public class MovieService implements IMovieService {
 
 	// TODO: Is there a way to read only once from DB, or save only once?
 	@Override
-	public MovieCardCache getMovieDetailsById(int id) {
+	public MovieCardCacheItem getMovieDetailsById(int id) {
 		String urlForPopularMovies = apiUrl + "/movie/" + id + "?api_key=" + apiKey;
 		// System.out.println(urlForPopularMovies);
-		Optional<MovieCardCache> movieCard = movieCardCacheReposoitry.findById(id);
-		
-		
-		if(movieCard.isPresent()) {
-			System.out.println("DIDNT HIT DB");
-			return movieCard.get();
-		}
-		
-		System.out.println("DID HIT THE DB");
-		
-		
-		return movieCardCacheReposoitry.save(restTemplate.getForEntity(urlForPopularMovies, MovieCardCache.class).getBody());
+		return movieCardCache.add(restTemplate.getForEntity(urlForPopularMovies, MovieCardCacheItem.class).getBody());
 	}
 }
