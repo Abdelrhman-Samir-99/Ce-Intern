@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 /*
     Time Complexity: O(N) where N is the length of the string.
-    Space Complexity: O(N)
+    Space Complexity: O(1)
     Description: we can just use "count sort" to solve this problem, by counting how many 1's, 2's, and 3's.
     then adding all 1's at the beginning then followed by 2's then lastly 3's.
 */

@@ -4,12 +4,13 @@ import static java.lang.Math.abs;
 import static java.lang.Math.min;
 
 /*
-    Time Complexity: O(M) where M is the number of players
+    Time Complexity: O(M log(K)) where M is the number of player and K is the maximum value in the player array.
+    Why did we add log(K)? for the conversion from integer to binary.
     Space Complexity: O(M)
     Description: It is just an implementation problem, there are no logic at all. just how you will implement it.
 */
 public class Main {
-
+    // O(log(Number) base 10)
     static String fromIntegerToBinary(int number, int size) {
         StringBuilder binary = new StringBuilder();
         while(number != 0) {

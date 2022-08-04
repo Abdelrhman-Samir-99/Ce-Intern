@@ -2,7 +2,8 @@ import java.util.Scanner;
 
 /*
     Time Complexity: O(N log(log N) + Q) where N is the maximum input value (that's cause of Sieve), and Q is the number of queries
-    Space Complexity: O(sqrt(N))
+    Space Complexity: O(N)
+    *I can argue that the time & space complexity are both O(1) since they are constant.*
     Description: Simply, we want to find a number with 3 divisors.
     each number has at least 2 divisors (except of 1)
     - first one is: 1
