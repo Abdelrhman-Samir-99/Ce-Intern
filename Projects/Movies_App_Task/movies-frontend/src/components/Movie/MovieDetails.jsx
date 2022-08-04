@@ -1,54 +1,57 @@
 import React from "react";
+import { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 import "./MovieDetails.css";
 
 const IMG_URL = `https://image.tmdb.org/t/p/w500/`;
+const movieURL = "https://api.themoviedb.org/3/movie/";
+const API_KEY = "?api_key=a97243d7813d31446f6c43284e6854d5&language=en-US";
 
-const MovieDetails = ({
-  title,
-  overview,
-  poster_path,
-  backdrop_path,
-  vote_average,
-  vote_count,
-  adult,
-  release_date,
-  original_title,
-  revenue,
-}) => {
+const MovieDetails = () => {
+  const [movieDetails, setMovieDetails] = useState({})
+  const {id} = useParams();
+
+  useEffect(() => {
+    fetch(movieURL + id + API_KEY).then(res => res.json()).then(data => {
+    setMovieDetails(data);
+    }) // eslint-disable-next-line 
+  }, [])
+
+  
   return (
     <>
       <div className="movieBackdrop">
         <div className="movieContainer">
-          <img src={IMG_URL + poster_path} alt={title} className="moviePoster"></img>
+          <img src={IMG_URL + movieDetails.poster_path} alt={movieDetails.title} className="moviePoster"></img>
           <section className="movieInfo">
             <p className="infoTitle">
-              Title: <span className="infoContent"> {title} </span>
+              Title: <span className="infoContent"> {movieDetails.title} </span>
             </p>
             <p className="infoTitle">
               Average Rating:{" "}
-              <span className="infoContent">{vote_average}</span>
+              <span className="infoContent">{movieDetails.vote_average}</span>
             </p>
             <p className="infoTitle">
               Average Rating:{" "}
-              <span className="infoContent">{vote_count}</span>
+              <span className="infoContent">{movieDetails.vote_count}</span>
             </p>
             <p className="infoTitle">
               Overview:{" "}
-              <span className="infoContent"> {overview}</span>
+              <span className="infoContent"> {movieDetails.overview}</span>
             </p>
             <p className="infoTitle">
               Release Date:{" "}
-              <span className="infoContent">{release_date}</span>
+              <span className="infoContent">{movieDetails.release_date}</span>
             </p>
             <p className="infoTitle">
               Runtime:{" "}
               <span className="infoContent"> This is the duration </span>
             </p>
             <p className="infoTitle">
-              Original Title: <span className="infoContent">{original_title} </span>
+              Original Title: <span className="infoContent">{movieDetails.original_title} </span>
             </p>
             <p className="infoTitle">
-              Revenue: <span className="infoContent">{revenue} </span>
+              Revenue: <span className="infoContent">{movieDetails.revenue} </span>
             </p>
     
           </section>

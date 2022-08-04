@@ -23,14 +23,18 @@ public class MovieCardCache implements IMovieCardCache {
 		}
 		
 		/*
-		 TODO: Ask Yara how to fix this (Go to the repository and show her the native query).
 		if(movieCardCacheReposoitry.count() == 1) {
 			movieCardCacheReposoitry.deleteTopRow();
 			System.out.println("HEYEYEEYEYEYE");
 			System.out.println(movieCardCacheReposoitry.count());
 		}
 		*/
+		
 		System.out.println("DID HIT THE DATABASE");
+		// movieCardCacheReposoitry.save(movieCard);
+		// System.out.println(movieCardCacheReposoitry.findAll());
+		// movieCardCacheReposoitry.deleteTopRow();
+		
 		return movieCardCacheReposoitry.save(movieCard);
 	}
 

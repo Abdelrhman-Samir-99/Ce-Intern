@@ -8,7 +8,7 @@ import org.springframework.data.jpa.repository.Query;
 import net.talaatharb.movies.model.MovieCardCacheItem;
 
 public interface MovieCardCacheRepository extends JpaRepository<MovieCardCacheItem, Integer> {
-	@Query(value = "Delete from MovieCardCacheItem LIMIT 1", nativeQuery = true)
+	@Query(value = "Delete from MovieCardCacheItem where id = 616037", nativeQuery = true)
 	@Transactional
 	public void deleteTopRow();
 	
