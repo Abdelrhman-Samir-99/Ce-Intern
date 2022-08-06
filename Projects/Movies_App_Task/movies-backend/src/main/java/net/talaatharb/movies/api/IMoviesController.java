@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping(path = "/movies")
 @CrossOrigin(origins = "*")
 public interface IMoviesController {
-	@GetMapping("/popular")
+	@GetMapping("/")
 	public ResponseEntity<Object> getPopularMovies(@RequestParam int page);
 	@GetMapping("/{id}")
 	public ResponseEntity<Object> getMovieById(@PathVariable int id);

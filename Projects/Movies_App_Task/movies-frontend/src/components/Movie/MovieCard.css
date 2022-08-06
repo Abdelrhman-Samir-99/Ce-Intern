@@ -1,69 +1,108 @@
-.movieCard {
-  width: 1000;
-  height: 100%;
-  margin: 1rem;
-  border-radius: 3px;
-  box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.1);
-  background-color: #373b69;
-  overflow: hidden;
-  position: relative;
-}
-
-.movieCard img {
-  max-width: 10%;
-}
-
 .movieCard-container {
   display: flex;
+  flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
+  width: 100%;
 }
 
-.movieCard-info {
-  display: flex;
-  padding: none;
-  justify-content: space-between;
-  align-items: center;
+.movieCard {
+  width: 30%;
 }
 
-.movieCard-info h3 {
-  margin: 0;
+a {
+  text-decoration: none;
+  color: #000;
 }
 
-.movieCard-over {
-  background-color: white;
-  border-top-left-radius: 3px;
-  border-top-right-radius: 3px;
-  box-shadow: 0px -3px 5px rgba(0, 0, 0, 0.1);
+.movieCard {
+  position: relative;
+  overflow: hidden;
+  width: 320px;
+  height: 450px;
+  margin: 30px 20px;
+  background: #333;
+  border: 1px solid #222;
+  border-radius: 5px;
+  box-shadow: 0 0 10px #444;
+}
+
+.movieCard .img1 {
   position: absolute;
-  color: #373b69;
-  transform: translateY(102%);
-  padding: 1rem;
+  top: 0;
+  left: 0;
+  height: 60%;
+  width: 100%;
+  background-size: 310px 440px;
+  background-position: left top;
+  transition: all 0.4s ease-in-out;
+}
+
+
+
+.movieCard .title {
+  height: 22%;
+  width: 100%;
+  font-size: 22px;
+  text-align: center;
+  font-weight: 700;
+  color: #FFFC;
+  padding: 15px 10px;
+  position: absolute;
   bottom: 0;
   left: 0;
-  right: 0;
-  overflow: auto;
-  max-height: 100%;
+  box-shadow: 0 -95px 28px -25px #000 inset;
 }
 
-.movieCard:hover .movieCard-over {
-  transform: translateY(0%);
+.movieCard .text {
+  position: absolute;
+  bottom: 120px;
+  height: 120px;
+  padding: 15px 10px;
+  text-align: center;
+  font-size: 18px;
+  color: #fff;
+  transform: rotate(90deg);
+  transform-origin: 0 100px;
+  opacity: 0;
+  transition: all 0.5s ease;
 }
 
-.tag {
-  background-color: #22254b;
+.movieCard .rating {
+  position: absolute;
+  left: 10px;
+  top: 140px;
+  padding: 3px 10px;
+  font-size: 20px;
+  font-weight: 700;
+  text-align: center;
+  background: #f5c518;
+  color: #fff;
   border-radius: 5px;
-  padding: 0.5 rem;
+  transform: translate(-160px, 0);
+  transition: all 0.5s ease;
 }
 
-.tag.green {
-  color: green;
+.movieCard:hover .img1 {
+  transform: scale(1.3) translate(20px, 0);
+  transform-origin: 300px 300px;
+  opacity: 0.5;
 }
 
-.tag.red {
-  color: red;
+.movieCard:hover .img2 {
+  transform: translate(0px, 150px);
+  transform-origin: -20px 200px;
 }
 
-.tag.orange {
-  color: orange;
+.movieCard:hover .text {
+  opacity: 0.85;
+  transform: rotate(0deg);
+}
+
+.movieCard:hover .rating {
+  transform: translate(0);
+}
+
+.movieCard .rating img {
+  width: 15px;
 }
