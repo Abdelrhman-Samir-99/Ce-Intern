@@ -3,33 +3,36 @@ package com.example.demo.model;
 import java.util.HashSet;
 import java.util.Set;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
+import javax.persistence.*;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
-import lombok.Data;
+import lombok.*;
 
 @Entity
 @Data
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
 public class Organization {
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	Integer id;
 	String name;
-	@OneToOne(cascade = CascadeType.ALL)
+	@OneToOne(cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
 	@JoinColumn(name = "orgContact_Id", referencedColumnName = "id")
 	private Organization_Contact orgContact;
-	
-	//@JsonIgnore
-	//@OneToMany(mappedBy = "org")
-	//Set<Project> projectSet = new HashSet<>();
-	
 
-	//@JsonIgnore
-	//@OneToMany(mappedBy = "org")
-	//Set<Team> teamSet = new HashSet<>();
+	@OneToMany(targetEntity = Team.class, cascade = CascadeType.ALL)
+	@JoinColumn(name = "organization_id", referencedColumnName = "id")
+	Set<Team> teams = new HashSet<>();
+
+	@OneToMany(targetEntity = Project.class, cascade = CascadeType.ALL)
+	@JoinColumn(name = "organization_id", referencedColumnName = "id")
+	Set<Project> projects = new HashSet<>();
+
+	public void addTeam(Team team) {
+		teams.add(team);
+	}
+	public void addProject(Project project) {
+		projects.add(project);
+	}
 }

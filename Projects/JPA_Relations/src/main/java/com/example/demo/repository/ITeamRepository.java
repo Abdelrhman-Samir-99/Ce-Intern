@@ -5,7 +5,11 @@ import org.springframework.stereotype.Repository;
 
 import com.example.demo.model.Team;
 
-@Repository
-public interface ITeamRepository extends JpaRepository<Team, Integer>{
+import java.util.Optional;
 
+@Repository
+public interface ITeamRepository extends JpaRepository<Team, Integer> {
+    Optional<Team> findByName(String name);
+
+    void deleteByName(String name);
 }
