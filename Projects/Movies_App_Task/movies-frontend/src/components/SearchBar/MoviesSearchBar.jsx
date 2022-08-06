@@ -1,16 +1,71 @@
 import React, { useState, useEffect } from "react";
-import Select from "react-select";
+import { useNavigate } from "react-router-dom";
 import "./MovieSearchBar.css";
-
-const options = [
-  { value: "chocolate", label: "Chocolate" },
-  { value: "strawberry", label: "Strawberry" },
-  { value: "vanilla", label: "Vanilla", test: "TEST" },
-];
 
 const part1 =
   "https://api.themoviedb.org/3/search/movie?api_key=a97243d7813d31446f6c43284e6854d5&language=en-US&query=";
 const part2 = "&page=1&include_adult=false";
+
+const MoviesSearchBar = () => {
+	let history = useNavigate();
+	const [Options, setOptions] = useState(() => []);
+  const [inputText,setInputText]=useState('')
+	const handleRedirect = (id) => {
+        history.navigate(`/${id}`)
+  };
+
+  const handleSubmit=(e)=> {
+      e.perventdefault();
+      if (inputText.length>2) {
+        fetch(part1 + inputText + part2).then(data=>data.json()).then(data=> {
+          //i don't know but all i know is want to set Options to [{id: ,.......}]
+          setOptions(()=>data)
+        })
+      }
+      setInputText(()=>'')
+  }
+
+  const test = (e) => {
+    setInputText(e.target.value);
+    //console.log(inputText.length + e.target.value);
+    
+  }
+
+  useEffect(() => {
+      if(inputText.length < 3) {
+        return;
+      }
+
+      fetch(part1 + inputText + part2).then(data=>data.json()).then(data=> {
+        //i don't know but all i know is want to set Options to [{id: ,.......}]
+        setOptions(()=>data)
+      })
+      console.log(Options)
+    
+  }, [inputText]);
+
+  useEffect(() => {
+```L  
+  }, [Options])
+	return (
+  <>
+    <form onSubmit={handleSubmit}>
+       <input type='text' onChange={test} className="search"/>
+    </form>   
+    <select disabled={Options.length? true:false}>
+       {Options.length && Options.map((data)=>
+       <option key={data.id} value={data.id} onClick={() => handleRedirect(data.id)}>{data.name}</option>)
+       }
+    </select>
+  </>
+  );
+};
+
+export default MoviesSearchBar;
+
+
+/*
+
 const MoviesSearchBar = () => {
   const [suggestions, setSuggestions] = useState(options);
   const [searchTerm, setSearchTerm] = useState("");
@@ -73,3 +128,4 @@ const MoviesSearchBar = () => {
 };
 
 export default MoviesSearchBar;
+*/
