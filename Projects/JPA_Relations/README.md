@@ -27,3 +27,4 @@
 - Read more use cases about Lazy & Eager fetching
 - What other uncommon problems I may face (like flushing)
 - Learn how to access the Many To Many join column, and how to acces it. (of if I should define it my self with two one to many relation)
+- Fix the problems that occur when running the whole repository collection test package
