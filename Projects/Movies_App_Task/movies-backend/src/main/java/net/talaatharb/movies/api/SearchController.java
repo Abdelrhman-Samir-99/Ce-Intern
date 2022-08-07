@@ -3,6 +3,7 @@ package net.talaatharb.movies.api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -24,5 +25,4 @@ public class SearchController implements ISearchController {
 		// TODO: Change the response to match if you had found it or not.
 		return new ResponseEntity<>(searchService.searchMoviesByName(name), HttpStatus.OK);
 	}
-
 }

@@ -20,11 +20,11 @@ public class SearchService implements ISearchService {
 	
 	// I need to find a way to map items inside the array to my object.
 	@Override
-	public MovieCard searchMoviesByName(String title) {
+	public MoviePage searchMoviesByName(String title) {
 		String urlForMovie = apiUrl + "/search/movie?api_key=" + apiKey + "&query=" + title;
 		System.out.println(urlForMovie);
 		MoviePage moviePage = restTemplate.getForEntity(urlForMovie, MoviePage.class).getBody();	
-		return new MovieCardMapper().fromMoviePage(moviePage);
+		return moviePage;
 	}
 
 }

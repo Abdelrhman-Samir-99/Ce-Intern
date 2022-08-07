@@ -16,7 +16,7 @@ const MovieCard = ({id, title, poster_path, overview, vote_average}) => {
                 </div>
                 <div className="img2"></div>
                 <div className="movieCard-info">
-                    <div className="title">{title}</div>
+                <div className="title">{title}</div>
                 </div>
 
                 <div className="movieCard-over">

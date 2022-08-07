@@ -22,7 +22,7 @@ public class MoviesController implements IMoviesController {
 	IMovieService movieService;
 	
 	@Override
-	public ResponseEntity<Object> getPopularMovies(@RequestParam int page){
+	public ResponseEntity<Object> getPopularMovies(@RequestParam int page) {
 		return new ResponseEntity<> (movieService.getPopularMoviesPage(page), HttpStatus.OK);
 	}
 
@@ -31,5 +31,4 @@ public class MoviesController implements IMoviesController {
 	public ResponseEntity<Object> getMovieById(@PathVariable int id) {
 		return new ResponseEntity<> (movieService.getMovieDetailsById(id), HttpStatus.OK);
 	}
-
 }

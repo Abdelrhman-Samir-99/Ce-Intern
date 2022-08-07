@@ -4,15 +4,14 @@ import { useParams } from "react-router-dom";
 import "./MovieDetails.css";
 
 const IMG_URL = `https://image.tmdb.org/t/p/w500/`;
-const movieURL = "https://api.themoviedb.org/3/movie/";
-const API_KEY = "?api_key=a97243d7813d31446f6c43284e6854d5&language=en-US";
+const movieURL = "http://localhost:8080/movies/";
 
 const MovieDetails = () => {
   const [movieDetails, setMovieDetails] = useState({})
   const {id} = useParams();
 
   useEffect(() => {
-    fetch(movieURL + id + API_KEY).then(res => res.json()).then(data => {
+    fetch(movieURL + id).then(res => res.json()).then(data => {
     setMovieDetails(data);
     }) // eslint-disable-next-line 
   }, [])

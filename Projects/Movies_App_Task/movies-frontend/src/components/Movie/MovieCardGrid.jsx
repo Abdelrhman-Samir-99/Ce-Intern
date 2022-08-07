@@ -2,14 +2,14 @@ import React, { useEffect, useState } from "react";
 import MoviesSearchBar from "../SearchBar/MoviesSearchBar";
 import MovieCard from "./MovieCard";
 
-const getPopularMoviesUrl = "https://api.themoviedb.org/3/movie/popular?api_key=a97243d7813d31446f6c43284e6854d5&language=en-US&page=1";
+const getPopularMoviesUrl = "http://localhost:8080/movies?page=1";
 
 const MovieCardGrid = () => {
     const [popularMovies, setPopularMovies] = useState([]);
     
     useEffect(() => {
         fetch(getPopularMoviesUrl).then(res => res.json()).then(data => {
-        setPopularMovies(data.results);
+            setPopularMovies(data.results);
         })
      }, [])
 
