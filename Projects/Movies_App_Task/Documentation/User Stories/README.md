@@ -15,19 +15,19 @@
   - Acceptance criteria:
     - Well functional search bar
     - Suggestions are shown after writing 3 or more letters
-    - If I clicked on a movie from a suggestion list, it must redirect me to the movie details
+    - If I clicked on a movie from the suggestion list, it must redirect me to the movie details
 ***
 - ***Search By Category:*** As a user, I want a button to filter the movies based on category.
   - Acceptance criteria:
     - Well functional button
     - All movies displayed belong only to the category I selected
 ***
-- ***Sort By Parameters:*** As a user, I want to sort movies based on some criteria
+- ***Sort By Parameters:*** As a user, I want to sort movies based on some criteria.
   - Acceptance criteria:
     - Well functional button
     - All movies displayed belong only to the category I selected
 ***
-- ***Registration:*** As a user, I want a page where I can make an account for myself
+- ***Registration:*** As a user, I want a page where I can make an account for myself.
   - Acceptance criteria:
     - Page for registration
     - Basic validation (each user has a single mail - valid phone number & e-mail - etc.)
