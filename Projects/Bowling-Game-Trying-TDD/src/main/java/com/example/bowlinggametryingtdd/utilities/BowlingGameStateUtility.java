@@ -1,11 +1,21 @@
 package com.example.bowlinggametryingtdd.utilities;
 
 
+import com.example.bowlinggametryingtdd.dtos.BowlingGameResultsDTO;
 import org.apache.commons.lang3.StringUtils;
 
 import java.util.ArrayList;
+import java.util.Map;
 
 public class BowlingGameStateUtility {
+
+    public static Boolean validateBowlingStateDTO(Map<String, byte[]> players) {
+        Boolean flag = true;
+        for(Map.Entry<String, byte[]> player : players.entrySet()) {
+            flag &= validateName(player.getKey()) && BowlingGameStateUtility.validateGameSate(player.getValue());
+        }
+        return flag;
+    }
     public static Boolean validateName(String name) {
         return !StringUtils.isBlank(name);
     }
