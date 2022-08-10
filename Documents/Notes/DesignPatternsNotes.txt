@@ -1,0 +1,33 @@
+Advantage of singleton?
+- Single object to share data (constant data or common algorithms - functions)
+- Connection for database (There are better patterns, pooling for example)
+
+-- Beans are singleton, i.e they are the same object! 
+	- For example, @RestControlelr/ @Service/ @Repository
+		- it changes the controller to a bean, and when you print the reference of the controller in any response
+		 	you will find that it is always the same object.
+-- But that doesn't mean all beans are singleton, you can change that.
+
+
+Why some consider singleton as an anti-pattern?
+- May be used for sharing writable global information (Windows Form). (Since you can access these data and write it from any where)
+
+-- Eager initialization may lead to slow start up of the application
+
+
+--------------------------------------------------------------------------------------------------------------------------
+Why shouldn't we let the builder pattern modify the object after creation?
+- Because it will make the object inconsisstent, and I beleive that the whole purpose of builder pattern is to build a well-defined object.
+
+---------------------------------------------------------------------------------------------------------------------------
+Abstract vs Strategy
+- Strategy pattern is a *computational* pattern, which means different *implementations* of calculating/ doing the same task.
+- Abstart pattern is a *creational* pattern; interested more in providing multiple ways for *creating* the object.
+---------------------------------------------------------------------------------------------------------------------------
+Depend on abstraction, not implementation.
+What is IoC?
+-------------------------------------------------
+Lombok
+- @Data => Creating Setter & Getters
+- @Builder => Creating a builder pattern for the specified class (You can access it by object_name.builder().property_name(value_to_inject).property_name(value_to_inject).build();
+	- You can edit the *build* method to make sure that the object is consistent.
