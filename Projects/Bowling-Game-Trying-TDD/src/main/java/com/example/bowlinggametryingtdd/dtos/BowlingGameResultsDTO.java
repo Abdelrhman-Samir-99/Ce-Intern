@@ -8,7 +8,6 @@ import java.util.List;
 
 @Builder
 @Data
-@RequiredArgsConstructor
 public class BowlingGameResultsDTO implements  Comparable <BowlingGameResultsDTO> {
     String name;
     Integer totalScore;

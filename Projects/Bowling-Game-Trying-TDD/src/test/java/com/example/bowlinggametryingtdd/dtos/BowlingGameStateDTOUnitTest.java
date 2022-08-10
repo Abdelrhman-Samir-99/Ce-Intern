@@ -61,8 +61,10 @@ public class BowlingGameStateDTOUnitTest {
 
     @Test
     public void validObjectTest() {
+        // Arrange
+        BowlingGameStateDTO dto = BowlingGameStateDTO.builder().players(bowlingGameState.players).build();
         // Assert
-        Assertions.assertThat(BowlingGameStateUtility.validateBowlingStateDTO(bowlingGameState.players)).isEqualTo(true);
+        Assertions.assertThat(BowlingGameStateUtility.validateBowlingStateDTO(dto)).isEqualTo(true);
     }
 
     @Test

@@ -1,7 +1,7 @@
 package com.example.bowlinggametryingtdd.utilities;
 
 
-import com.example.bowlinggametryingtdd.dtos.BowlingGameResultsDTO;
+import com.example.bowlinggametryingtdd.dtos.BowlingGameStateDTO;
 import org.apache.commons.lang3.StringUtils;
 
 import java.util.ArrayList;
@@ -9,12 +9,21 @@ import java.util.Map;
 
 public class BowlingGameStateUtility {
 
-    public static Boolean validateBowlingStateDTO(Map<String, byte[]> players) {
+    public static Boolean validateBowlingStateDTO(BowlingGameStateDTO states) {
+        Map <String, byte[]> players = states.getPlayers();
         Boolean flag = true;
         for(Map.Entry<String, byte[]> player : players.entrySet()) {
-            flag &= validateName(player.getKey()) && BowlingGameStateUtility.validateGameSate(player.getValue());
+            flag &= validateName(player.getKey()) && validateGameSate(player.getValue()) && validateRolls(player.getValue());
         }
         return flag;
+    }
+
+    // TODO: Implement this function
+    public static Boolean validateRolls(byte[] rolls) {
+        /*for(int i = 0; i < rolls.length; ++i) {
+
+        }*/
+        return true;
     }
     public static Boolean validateName(String name) {
         return !StringUtils.isBlank(name);
