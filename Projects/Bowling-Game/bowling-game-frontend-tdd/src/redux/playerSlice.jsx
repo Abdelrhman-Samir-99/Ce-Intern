@@ -20,9 +20,10 @@ const playerSlice = createSlice({
 
             state.push(newPlayer);
         },
-        deletePlayer: (state, action) => {
-            state.filter((item) => item.id !== action.payload.id);
-            console.log(state);
+        deletePlayer: (state, action) => { return state = state.filter(({id}) => { 
+                    return id !== action.payload.id
+                }
+            );
         },
     }
 })
