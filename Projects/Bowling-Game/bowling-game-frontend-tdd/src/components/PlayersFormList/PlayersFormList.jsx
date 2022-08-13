@@ -1,5 +1,4 @@
 import { useSelector } from "react-redux";
-import uuid from "react-uuid";
 import PlayersFormItem from "../PlayersFormItem/PlayersFormItem";
 
 const PlayersFormList = () => {
