@@ -1,5 +1,5 @@
-import React, {useEffect} from "react";
 import { useSelector } from "react-redux";
+import uuid from "react-uuid";
 import PlayersFormItem from "../PlayersFormItem/PlayersFormItem";
 
 const PlayersFormList = () => {
@@ -10,7 +10,7 @@ const PlayersFormList = () => {
             <ul>
                 {
                     Players.map((Player) => (
-                        <PlayersFormItem name = {Player.name} rolls = {Player.rolls}/>  
+                        <PlayersFormItem key = {Player.id} id = {Player.id} name = {Player.name} rolls = {Player.rolls}/>  
                     ))
                 }
             </ul>

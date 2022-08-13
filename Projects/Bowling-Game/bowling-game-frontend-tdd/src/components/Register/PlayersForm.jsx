@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import { useDispatch } from 'react-redux';
-import {addPlayer} from '../';
+import { addPlayer } from '../../redux/playerSlice';
 
 const PlayersForm = () => {
     const [value, setValue] = useState('');
@@ -9,14 +9,13 @@ const PlayersForm = () => {
     const onSubmitHandler = (event) => {
         event.preventDefault();
         if(value) {
-            // TODO: dispatch here
             dispatch(
                 addPlayer({
                     name: value,
                     rolls:[]
                 })
             );
-            console.log("HEYEY");
+            setValue('');
         }
     };
 

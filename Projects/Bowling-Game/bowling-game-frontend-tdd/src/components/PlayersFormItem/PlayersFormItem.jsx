@@ -1,9 +1,21 @@
 import React from "react";
+import { useDispatch } from "react-redux";
+import { deletePlayer } from '../../redux/playerSlice';
 
 
-const PlayersFormItem = ({name, rolls}) => {
-    
-    const deleteHandler = () => {}
+const PlayersFormItem = ({id, name, rolls}) => {
+    const dispatch = useDispatch();
+
+    const deleteHandler = (event) => {
+        event.preventDefault();
+        console.log(id);
+        dispatch(
+            deletePlayer({
+                    id: id
+                }
+            )
+        );
+    }
 
     return (
         <li className="list-group-item list-group-item-success">
