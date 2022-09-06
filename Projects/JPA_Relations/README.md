@@ -11,7 +11,7 @@
 - Tested all the repositories using Junit
   - Making sure that simple CRUD operations are working as expected
   - Making sure that cascading is working as expected
-  - Took notes about
+- Took notes about
   - Flushing in database
   - Automated test cases wokrs in asynchronous way by default
 ## Database Schema
